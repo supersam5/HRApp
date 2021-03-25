@@ -1,0 +1,28 @@
+﻿@model IEnumerable<HRApp.Models.Employee>
+@{
+    ViewData["Title"] = "Welcome To HRApp";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Employees</h1>
+    <p>@Html.ActionLink("Add New", "CreateForm", "Employee")</p>
+
+    @foreach (var item in Model)
+    {
+<div class="container-md">
+    <div class="employee-name row">
+        <div class="first-name col-2">@Html.DisplayFor(modelitem => item.FirstName )</div>
+        <div class="middle-name col-2">@Html.DisplayFor(modelitem => item.MiddleName)</div>
+        <div class="last-name col-2">@Html.DisplayFor(modelitem => item.LastName)</div>
+    </div>
+    <div class="other-items row">
+        
+        <div class="col-2"><span>Grade Level:</span> @Html.DisplayFor(modelitem => item.GradeLevel)</div>
+        <div class="col-2"><span>Age:</span> @Html.DisplayFor(modelitem => item.Age)</div>
+        <div class="col-4"><span>Job Description:</span> @Html.DisplayFor(modelitem => item.JobTitle)</div>
+        <div class="col-2"><button class="btn btn-danger"> @Html.ActionLink("Delete","Delete","Employee", new { id = item.ID })   </button></div>
+        <div class="col-2"><button class="btn btn-primary">@Html.ActionLink("Edit", "EditForm", "Employee", new { id = item.ID })</button></div>
+    </div>
+</div>
+    }
+</div>
