@@ -51,9 +51,9 @@
                 <input asp-for="JobTitle" class="form-control" />
                 <span asp-validation-for="JobTitle" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="ID" class="control-label"></label>
-                <input asp-for="ID" class="form-control" />
+                <input asp-for="ID" class="form-control" readonly/>
                 <span asp-validation-for="ID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -64,6 +64,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Home", "Index", "Home")
 </div>
 

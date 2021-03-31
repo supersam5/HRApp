@@ -9,17 +9,18 @@
 
     @foreach (var item in Model)
     {
-<div class="container-md">
+<div class="container-md border-bottom border-top box-shadow employee-card">
     <div class="employee-name row">
+        <h6>Name</h6>
         <div class="first-name col-2">@Html.DisplayFor(modelitem => item.FirstName )</div>
         <div class="middle-name col-2">@Html.DisplayFor(modelitem => item.MiddleName)</div>
         <div class="last-name col-2">@Html.DisplayFor(modelitem => item.LastName)</div>
     </div>
-    <div class="other-items row">
+    <div class="other-fields row ">
         
-        <div class="col-2"><span>Grade Level:</span> @Html.DisplayFor(modelitem => item.GradeLevel)</div>
-        <div class="col-2"><span>Age:</span> @Html.DisplayFor(modelitem => item.Age)</div>
-        <div class="col-4"><span>Job Description:</span> @Html.DisplayFor(modelitem => item.JobTitle)</div>
+        <div class="col-2"><h6>Grade Level</h6> @Html.DisplayFor(modelitem => item.GradeLevel)</div>
+        <div class="col-2"><h6>Age</h6> @Html.DisplayFor(modelitem => item.Age)</div>
+        <div class="col-4"><h6>Job description</h6> @Html.DisplayFor(modelitem => item.JobTitle)</div>
         <div class="col-2"><button class="btn btn-danger"> @Html.ActionLink("Delete","Delete","Employee", new { id = item.ID })   </button></div>
         <div class="col-2"><button class="btn btn-primary">@Html.ActionLink("Edit", "EditForm", "Employee", new { id = item.ID })</button></div>
     </div>

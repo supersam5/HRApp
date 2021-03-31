@@ -19,7 +19,26 @@ a {
 }
 button a {
     color: white;
-    text-decoration-style : none;
+    text-decoration : none;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.other-fields {
+    border-top: 3px none
+}
+
+.employee-card {
+    padding: 30px
+}
+
+.employee-name {
+    padding: 5px
+}
+h6 {
+    color: cornflowerblue;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -41,14 +60,13 @@ html {
 
 .border-top {
   border-top: 1px solid #e5e5e5;
+  
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
 
 button.accept-policy {
   font-size: 1rem;
@@ -66,6 +84,8 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+
 .footer {
   position: absolute;
   bottom: 0;

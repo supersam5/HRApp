@@ -21,11 +21,25 @@ namespace HRApp.Controllers
         
 
         // GET: EmployeeController/Details/5
+
+        public ActionResult Details (int id)
+        {
+            Employee e = new Employee();
+            using (IDbConnection db = new SqlConnection(Global.ConnectionString))
+            {
+                e = db.Query<Employee>($"SELECT * From Employees WHERE ID = " + id, new { id }).SingleOrDefault();
+
+                return View(e);
+
+
+
+            }
+        }
         
         [HttpGet]
         public ActionResult EditForm(int id)
         {
-            Console.WriteLine("WE reach here");
+            Console.WriteLine("We reach here");
             
             //List<Employee> employees = new List<Employee>();
             Employee e = new Employee();
@@ -51,23 +65,26 @@ namespace HRApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Employee employee)
-        {   /*
+        {   
             try
-            { */
+            { 
                 using (IDbConnection db = new SqlConnection(Global.ConnectionString))
                 {
-                    string sqlQuery = $"INSERT INTO Employees (FirstName, LastName, MiddleName, Age, GradeLevel) VALUES ( '{employee.FirstName}','{employee.LastName}','{employee.MiddleName}', {employee.Age},{employee.GradeLevel})";
+                    string sqlQuery = $"INSERT INTO Employees (FirstName, LastName, MiddleName, Age, GradeLevel, JobTitle) VALUES ( '{employee.FirstName}','{employee.LastName}','{employee.MiddleName}','{employee.Age}','{employee.GradeLevel}','{employee.JobTitle}')";
                       
 
                     int rowsAffected = db.Execute(sqlQuery);
                     
                 }
                 return RedirectToAction("Index", "Home");
-            /*}
-            catch
+            
+}            catch
             {
+                using(IDbConnection db = new SqlConnection(Global.ConnectionString)){
+                    
+                }
                 return View();
-            }*/
+            }
         }
 
 
@@ -86,6 +103,7 @@ namespace HRApp.Controllers
                     p.Add("@Middlename", employee.MiddleName);
                     p.Add("@Age", employee.Age);
                     p.Add("@GradeLevel", employee.GradeLevel);
+                    p.Add("@JobTitle", employee.JobTitle);
                     p.Add("@ID", employee.ID);
                     var result = db.Execute(sql, p);*/
                 try {
